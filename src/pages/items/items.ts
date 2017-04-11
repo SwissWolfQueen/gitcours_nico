@@ -13,6 +13,8 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription.js'
 
 import { TodosService, ITodo } from '../../providers/todos-service/todos-service';
+import { NotifMock } from '../../providers/notifications-service/notif-mock';
+import { INotifItem } from "../../providers/notifications-service/notif-model"
 
 /**
  * Generated class for the Items page.
@@ -34,7 +36,8 @@ export class Items {
 
   constructor(
     public navCtrl: NavController,
-    public todoService: TodosService
+    public todoService: TodosService,
+    public notifMock: NotifMock
   ) {
     this.todos = this.todoService.todos; // subscribe to entire collection
     this.todoService.loadAll()
@@ -105,10 +108,20 @@ export class Items {
     todo.expire = true;
     // update todo data
     this.todoService.update(todo)
-    // TODO:
-    // disable alert and use Native Plugin
-    // with the custom provider localNotifications
-    // to have debug mode in browser
-    alert(`Expired: ${todo.description}`)
+    //alert(`Expired: ${todo.description}`)
+
+    // Schedule a single notification with native plugin
+    // will run notification on mobile or simple alert in browser
+    // Magic ;-)
+    const newDate = new Date();
+    newDate.setMinutes(newDate.getMinutes() + 1);
+    this.notifMock.schedule(<INotifItem>{
+    //this.localNotifications.schedule(<INotifItem>{
+      id: 1,
+      text: todo.description,
+      //sound: isAndroid? 'file://sound.mp3': 'file://beep.caf',
+      data: { secret: 'toto' },
+      at: newDate
+    });
   }
 }
