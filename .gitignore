@@ -17,7 +17,7 @@ npm-debug.log*
 .tmp/
 .versions/
 coverage/
-dist/
+# dist/
 node_modules/
 tmp/
 temp/
@@ -33,7 +33,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
-### SERVER IGNORE 
+### SERVER IGNORE
 
 # Ignore server builded files
 # server/**/*.js
