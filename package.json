@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=prod node ./server.js",
     "start:dev": "npm run mongod & npm run server:dev & ionic serve --dev",
-    "start:prod": "npm run server & ionic serve --prod",
+    "start:prod": "ionic serve --prod",
     "server": "tsc server.ts --outDir ./dist && NODE_ENV=prod node ./dist/server.js",
     "server:dev": "tsc server.ts -w --outDir ./dist & nodemon ./dist/server.js --dev --ignore src/ --ignore www/ --ignore .tmp/",
     "mongod": "/usr/local/bin/mongod --dbpath /data/db",
@@ -96,6 +96,6 @@
   "config": {
   "ionic_webpack": "./webpack.config.js"
 },
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "demo ionic-devops: An Ionic demo"
 }
