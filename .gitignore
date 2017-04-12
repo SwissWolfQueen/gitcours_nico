@@ -45,4 +45,4 @@ UserInterfaceState.xcuserstate
 # Added files & folders
 *.js
 *-config.*
-config.*
+# config.*
