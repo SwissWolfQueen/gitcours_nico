@@ -39,6 +39,14 @@
 
 
 <ion-content>
+  <div
+  text-center
+  margin
+  *ngIf="!(todos | async); else elseBlock"><ion-spinner name="crescent"></ion-spinner>
+
+  </div>
+
+  <ng-template #elseBlock>
 
     <ion-list>
 
@@ -63,4 +71,5 @@
       </ion-item-sliding>
 
     </ion-list>
+    </ng-template>
 </ion-content>
