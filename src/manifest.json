@@ -1,6 +1,6 @@
 {
-  "name": "demo-devops-cours",
-  "short_name": "devops",
+  "name": "Ionic-Demo-Cours",
+  "short_name": "ionic-demo-cours",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
